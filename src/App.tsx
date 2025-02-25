@@ -4,6 +4,7 @@ import { useState } from "react"
 import { size } from "./constants/size"
 import { GalleryInterface } from "./interface/gallery.interface"
 import { AnimatePresence, motion } from "motion/react"
+import { Credits } from "./components/credits"
 
 function App() {
   const [selectedGallery, setSelectedGallery] = useState<GalleryInterface | null>(null)
@@ -21,6 +22,14 @@ function App() {
 
   return (
     <section className="w-full h-dvh overflow-hidden">
+      <div 
+        className="fixed inset-0 z-50 lg:hidden bg-white flex justify-center items-center"
+      >
+        <span className="text-lg font-medium">
+          Please, use a large screen !
+        </span>
+      </div>
+      <Credits />
       <AnimatePresence initial={false}>
         {selectedGallery == null && (
           <motion.header
